@@ -25,53 +25,65 @@ AppAsset::register($this);
 </head>
 <body>
 <?php $this->beginBody() ?>
-
-<div class="wrap">
-    <?php
-    NavBar::begin([
-        'brandLabel' => Yii::$app->name,
-        'brandUrl' => Yii::$app->homeUrl,
-        'options' => [
-            'class' => 'navbar-inverse navbar-fixed-top',
-        ],
-    ]);
-    echo Nav::widget([
-        'options' => ['class' => 'navbar-nav navbar-right'],
-        'items' => [
-            ['label' => 'Home', 'url' => ['/site/index']],
-            ['label' => 'About', 'url' => ['/site/about']],
-            ['label' => 'Contact', 'url' => ['/site/contact']],
-            Yii::$app->user->isGuest ? (
-                ['label' => 'Login', 'url' => ['/site/login']]
-            ) : (
-                '<li>'
-                . Html::beginForm(['/site/logout'], 'post')
-                . Html::submitButton(
-                    'Logout (' . Yii::$app->user->identity->username . ')',
-                    ['class' => 'btn btn-link logout']
-                )
-                . Html::endForm()
-                . '</li>'
-            )
-        ],
-    ]);
-    NavBar::end();
-    ?>
-
-    <div class="container">
-        <?= Breadcrumbs::widget([
-            'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
-        ]) ?>
-        <?= Alert::widget() ?>
-        <?= $content ?>
+<header id="top">
+    <div class="header-wrap">
+        <div class="header-logo"><a href="#top"><img src="/img/logo.png" alt=""></a></div>
+        <ul class="header-nav">
+            <li><a class="top-link" href="#about">О&nbsp;КОМПАНИИ</a></li>
+            <li><a class="top-link" href="#services">УСЛУГИ</a></li>
+            <li><a class="top-link" href="#connect">ОБРАТНАЯ&nbsp;СВЯЗЬ</a></li>
+            <li><a class="top-link" href="#contacts">КОНТАКТЫ</a></li>
+        </ul>
+        <div class="tablet-nav">
+            <div class="tablet-nav__phone"><a href="tel:+78125653315">+7&nbsp;812&nbsp;565&nbsp;33&nbsp;15</a>
+                <p>с 10:00 до 19:00</p></div>
+            <div class="tablet-nav__address"><a href="#">Санкт-Петербург</a>
+                <p>13 линия В.О., д. 6-8</p></div>
+            <div class="tablet-nav__burger"><a id="burger-tablet" href="#"><img src="/img/meat.svg" alt=""></a></div>
+        </div>
+        <div class="mobile-nav"><a href="tel:+78125653315"><img src="/img/phone-call-white.svg" alt=""> </a><a
+                    id="burger" href="#"><img src="/img/meat.svg" alt=""></a></div>
     </div>
-</div>
+    <div class="modal-menu hidden" id="modalHead">
+        <div class="modal-menu__body">
+            <div class="top-line"></div>
+            <div class="menu">
+                <ul class="modal-list">
+                    <li><a class="modal-link" href="#about"><span>О&nbsp;КОМПАНИИ</span><span
+                                    class="menu-arrow">&rarr;</span></a></li>
+                    <li><a class="modal-link" href="#services"><span>УСЛУГИ</span><span class="menu-arrow">&rarr;</span></a>
+                    </li>
+                    <li><a class="modal-link" href="#connect"><span>ОБРАТНАЯ&nbsp;СВЯЗЬ</span><span class="menu-arrow">&rarr;</span></a>
+                    </li>
+                    <li><a class="modal-link" href="#contacts"><span>КОНТАКТЫ</span><span
+                                    class="menu-arrow">&rarr;</span></a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="modal-menu__line"><a id="close-modal" href="#"></a></div>
+    </div>
+</header>
+    <main>
+        <?= $content ?>
+    </main>
 
-<footer class="footer">
-    <div class="container">
-        <p class="pull-left">&copy; My Company <?= date('Y') ?></p>
-
-        <p class="pull-right"><?= Yii::powered() ?></p>
+<footer>
+    <div class="footer-wrap">
+        <div class="footer">
+            <div class="logo"><a href="#top"><img src="/img/logo.png" alt=""></a></div>
+            <ul class="footer-nav">
+                <li><a href="#about">О&nbsp;КОМПАНИИ</a></li>
+                <li><a href="#services">УСЛУГИ</a></li>
+                <li><a href="#connect">ОБРАТНАЯ&nbsp;СВЯЗЬ</a></li>
+                <li><a href="#contacts">КОНТАКТЫ</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <h5>ООО &laquo;ИНЖЕНЕРНАЯ КОМПЛЕКТАЦИЯ-
+            <wbr>
+            КОМПЛЕКСНЫЕ РЕШЕНИЯ&raquo;, 2021
+        </h5>
     </div>
 </footer>
 

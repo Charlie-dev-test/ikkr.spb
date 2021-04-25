@@ -12,51 +12,37 @@ class ContactForm extends Model
 {
     public $name;
     public $email;
+    public $phone;
     public $subject;
-    public $body;
-    public $verifyCode;
-
-
+    public $success = false;
     /**
      * @return array the validation rules.
      */
     public function rules()
     {
         return [
-            // name, email, subject and body are required
-            [['name', 'email', 'subject', 'body'], 'required'],
-            // email has to be a valid email address
-            ['email', 'email'],
-            // verifyCode needs to be entered correctly
-            ['verifyCode', 'captcha'],
+            [['name', 'email', 'phone'], 'required', 'message' => 'обязательное поле'],
+            ['email', 'email', 'skipOnError' => true, 'message' => 'неверный формат E-mail адреса'],
+            ['phone', 'match', 'pattern' => '/^\+7\s\([\d]{3}\)\s[\d]{3}-[\d]{2}-[\d]{2}$/i', 'message' => 'неверный формат телефонного номера'],
+            ['subject', 'string']
         ];
     }
 
-    /**
-     * @return array customized attribute labels
-     */
-    public function attributeLabels()
-    {
-        return [
-            'verifyCode' => 'Verification Code',
-        ];
-    }
 
     /**
      * Sends an email to the specified email address using the information collected by this model.
      * @param string $email the target email address
      * @return bool whether the model passes validation
      */
-    public function contact($email)
+    public function contact()
     {
         if ($this->validate()) {
-            Yii::$app->mailer->compose()
-                ->setTo($email)
+            Yii::$app->mailer->compose('contact', ['model' => $this])
+                ->setTo(Yii::$app->params['adminEmail'])
                 ->setFrom([Yii::$app->params['senderEmail'] => Yii::$app->params['senderName']])
-                ->setReplyTo([$this->email => $this->name])
-                ->setSubject($this->subject)
-                ->setTextBody($this->body)
+                ->setSubject('Новая заявка с сайта Инженерная Комплектация')
                 ->send();
+            $this->success = true;
 
             return true;
         }
