@@ -49,6 +49,13 @@ $config = [
             'rules' => [
             ],
         ],
+        'reCaptcha' => [
+            'class' => 'himiklab\yii2\recaptcha\ReCaptchaConfig',
+            'siteKeyV2' => '6LfFYLkaAAAAAHpnQbNq6ft00p_r_OAOIeyX69_K',
+            'secretV2' => '6LfFYLkaAAAAAPtwMogA6HrBXi4h8JYIoZS8iji7',
+            'siteKeyV3' => '6LfFYLkaAAAAAHpnQbNq6ft00p_r_OAOIeyX69_K',
+            'secretV3' => '6LfFYLkaAAAAAPtwMogA6HrBXi4h8JYIoZS8iji7',
+        ],
     ],
     'params' => $params,
 ];

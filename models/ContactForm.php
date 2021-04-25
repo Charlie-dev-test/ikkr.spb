@@ -15,6 +15,7 @@ class ContactForm extends Model
     public $phone;
     public $subject;
     public $success = false;
+    public $reCaptcha;
     /**
      * @return array the validation rules.
      */
@@ -24,7 +25,11 @@ class ContactForm extends Model
             [['name', 'email', 'phone'], 'required', 'message' => 'обязательное поле'],
             ['email', 'email', 'skipOnError' => true, 'message' => 'неверный формат E-mail адреса'],
             ['phone', 'match', 'pattern' => '/^\+7\s\([\d]{3}\)\s[\d]{3}-[\d]{2}-[\d]{2}$/i', 'message' => 'неверный формат телефонного номера'],
-            ['subject', 'string']
+            ['subject', 'string'],
+            [['reCaptcha'], \himiklab\yii2\recaptcha\ReCaptchaValidator3::className(),
+                'threshold' => 0.5,
+                'action' => 'index',
+            ],
         ];
     }
 
