@@ -83,7 +83,7 @@ $domain = Url::base(true);
         </div>
     </div>
     <div class="footer-bottom">
-        <h5>ООО &laquo;ИНЖЕНЕРНАЯ КОМПЛЕКТАЦИЯ-
+        <h5>ООО &laquo;ИНЖЕНЕРНАЯ КОМПЛЕКТАЦИЯ&nbsp;-
             <wbr>
             КОМПЛЕКСНЫЕ РЕШЕНИЯ&raquo;, 2021
         </h5>

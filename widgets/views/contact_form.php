@@ -5,7 +5,7 @@ use yii\widgets\ActiveForm;
 use yii\widgets\Pjax;
 
 ?>
-<?php Pjax::begin(); ?>
+<?php Pjax::begin(['enableReplaceState' => true, 'enablePushState' => true, 'linkSelector' => false]); ?>
 <?php if ($model['success']): ?>
     <div class="row">
         <div class="col-12">
@@ -25,8 +25,8 @@ use yii\widgets\Pjax;
     <?= $form->field($model, 'email')->textInput(['placeholder' => 'E-mail', 'class' => 'form-control'])->label(false); ?>
 
     <?= $form->field($model, 'subject')->textarea(['rows' => 3, 'placeholder' => 'Задайте Ваш вопрос или добавьте комментарий', 'class' => 'form-control'])->label(false) ?>
-            <div class="agreement"><p>Отправляя форму обратной связи, вы <a href="#" target="_blank" download="">соглашаетесь</a> с
-            условиями <a href="#" target="_blank" download="">обработки и использования персональных данных</a></p></div>
+            <div class="agreement"><p>Отправляя форму обратной связи, вы <a href="/files/agreement.pdf" target="_blank" download="">соглашаетесь</a> с
+            условиями <a href="/files/polozhenie-o-pd.pdf" target="_blank" download="">обработки и использования персональных данных</a></p></div>
             <?= $form->field($model, 'reCaptcha')->label(false)->widget(
             \himiklab\yii2\recaptcha\ReCaptcha3::className(),
             [

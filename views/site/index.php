@@ -140,17 +140,6 @@ $this->title = 'ИНЖЕНЕРНАЯ КОМПЛЕКТАЦИЯ–КОМПЛЕКС
             <div class="form-wrap"><h2>СВЯЖИТЕСЬ С НАМИ</h2>
                 <p>и мы ответим на ваши вопросы</p>
                 <?= \app\widgets\ContactFormWidget::widget(); ?>
-<!--                <form class="engecom-form" action="#"><input class="form-control" type="text" placeholder="Имя">-->
-<!--                    <input class="form-control" type="text" placeholder="Телефон"> <input class="form-control"-->
-<!--                                                                                          type="text"-->
-<!--                                                                                          placeholder="E-mail">-->
-<!--                    <textarea class="form-control" name="question" id=""-->
-<!--                              placeholder="Задайте Ваш вопрос или добавьте комментарий"></textarea>-->
-<!--                    <div class="agreement"><p>Отправляя форму обратной связи, вы <a href="#"-->
-<!--                                                                                    download>соглашаетесь</a> с-->
-<!--                            условиями <a href="" download>обработки и использования персональных данных</a></p></div>-->
-<!--                    <button class="btn form-btn" type="submit">ОТПРАВИТЬ</button>-->
-<!--                </form>-->
             </div>
         </div>
     </div>
@@ -162,7 +151,7 @@ $this->title = 'ИНЖЕНЕРНАЯ КОМПЛЕКТАЦИЯ–КОМПЛЕКС
                 <div class="props"><p>199034, САНКТ-ПЕТЕРБУРГ,&shy; 13 ЛИНИЯ В.О., Д. 6-8, ЛИТ. А,&shy; ПОМ. 46Н,
                         КОМ. 6</p>
                     <p><a class="contact-tel" href="tel:+78125653315">+7&nbsp;812&nbsp;565&nbsp;33&nbsp;15</a></p>
-                    <p><a class="contact-props" href="/docs/requsites.doc" target="_blank" download="">СКАЧАТЬ РЕКВИЗИТЫ</a></p></div>
+                    <p><a class="contact-props" href="/files/requsites.doc" target="_blank" download="">СКАЧАТЬ РЕКВИЗИТЫ</a></p></div>
             </div>
         </div>
         <div class="contact-map">
