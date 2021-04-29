@@ -8,7 +8,7 @@
 <table align="center" border="0" cellspacing="5" cellpadding="5" width="700" class="table-info">
     <?php if (!empty($model->name)): ?>
         <tr>
-            <td align="right" style="font-weight: 500;">Имя пользователя:</td>
+            <td align="right" style="font-weight: 500;">Имя заявителя:</td>
             <td align="left" style="font-style: italic;"><?=$model->name?>
             </td>
         </tr>
